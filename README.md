@@ -7,11 +7,11 @@ included are install-scripts for the raspberry pi. Follow the README in the 'doc
 ## docker
 You should have a docker engine running on the host. 
 
-Install docker desktop ( OS = ALL* )
+- Install docker desktop ( OS = ALL* )
 OR
-Install docker on WSL ( WSL = Windows Subsystem for Linux)
+- Install docker on WSL ( WSL = Windows Subsystem for Linux)
 OR
-Install docker on Linux
+- Install docker on Linux
 
 Windows: https://docs.docker.com/desktop/windows/install/
 Macos: https://docs.docker.com/desktop/mac/install/
