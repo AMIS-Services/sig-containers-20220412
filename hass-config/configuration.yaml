@@ -1,0 +1,24 @@
+default_config:
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://localhost:3218/
+    require_admin: true
+  nodered:
+    title: Node-Red
+    icon: mdi:shuffle-variant
+    url: http://localhost:1880/
+#    require_admin: true
+#  portainer:
+#    title: Portainer
+#    url: http://localhost:9000/
+#    icon: mdi:docker
+#    require_admin: true
+
+mqtt:
+#  broker: localhost
+
+recorder:
+  db_url: mysql://homeassistant:ha_dbdatabasepassword@localhost/ha_db?charset=utf8
+  purge_keep_days: 30
