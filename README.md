@@ -69,6 +69,7 @@ Preparation
 
 Create a directory where we will put all needed config and our docker-compose file itself. As an example, I will be using a directory named ‘hass’. We will then precreate a directory structure to maintain configuration and data of the services. To clarify, structure will be as shown below and should be created as a normal non-root user.
 
+```
 hass
 ├── configurator-config
 │   └── settings.conf
@@ -83,6 +84,7 @@ hass
 │   ├── data
 │   └── log
 ├── nodered
+```
 
 ## Prereqs
 
