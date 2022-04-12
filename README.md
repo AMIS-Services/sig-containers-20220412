@@ -7,17 +7,17 @@ included are install-scripts for the raspberry pi. Follow the README in the 'doc
 ## docker
 You should have a docker engine running on the host. 
 
-Install docker desktop ( OS = ALL* )​
-OR​
-Install docker on WSL ( WSL = Windows Subsystem for Linux)​
-OR​
-Install docker on Linux​
+Install docker desktop ( OS = ALL* )
+OR
+Install docker on WSL ( WSL = Windows Subsystem for Linux)
+OR
+Install docker on Linux
 
-Windows: https://docs.docker.com/desktop/windows/install/​
-Macos: https://docs.docker.com/desktop/mac/install/​
-Linux: https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script​
+Windows: https://docs.docker.com/desktop/windows/install/
+Macos: https://docs.docker.com/desktop/mac/install/
+Linux: https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
 
-> *docker desktop on linux is still in beta​
+> *docker desktop on linux is still in beta
 
 ## compose
 ### docker desktop
@@ -27,10 +27,10 @@ docker-compose is installed with docker desktop
 If you are following on a raspberry pi, execute 'installPortainer.sh' or copy/paste the commands in your terminal.
 
 # Portainer
-## Docker basic commands ​
+## Docker basic commands 
 ```
-docker version​
-docker ps​
+docker version
+docker ps
 docker volume create portainer_data​
 docker pull portainer/portainer-ce:latest ​
 docker image ls​
