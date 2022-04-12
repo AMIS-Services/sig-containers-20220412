@@ -118,7 +118,7 @@ panel_iframe:
     url: http://<hostip>:1880/
     require_admin: true
 mqtt:
-  broker: <hostip>
+#  broker: <hostip>
   
 recorder:
   db_url: mysql://homeassistant:<ha_dbdatabasepassword>@<hostip>/ha_db?charset=utf8
@@ -233,6 +233,15 @@ Delete Volume: ```-v```
 
 ```docker-compose down -v```
 
+## Add portainer to config file
+```
+ portainer:
+   title: Portainer
+   url: http://<hostip>:9000/
+   icon: mdi:docker
+   require_admin: true
+```
+
 ## Troubleshooting
 Review the container logs.
 Most common issues are permission related.
@@ -240,3 +249,4 @@ On RPi solve it like:
 ```
 sudo chown 1883:1883 ./mosquitto/config/mosquitto.conf
 ```
+
