@@ -5,17 +5,15 @@ This is the README for SIG container technology ( 12-04-2022 )
 included are install-scripts for the raspberry pi. Follow the README in the 'dockerInstallScriptsRPi' folder.
 
 ## docker
-You should have a docker engine running on the host. 
+You should have a docker engine running on the host. To install docker, do one of the following:
 
 - Install docker desktop ( OS = ALL* )
-
 - Install docker on WSL ( WSL = Windows Subsystem for Linux)
-
 - Install docker on Linux
 
-Windows: https://docs.docker.com/desktop/windows/install/
-Macos: https://docs.docker.com/desktop/mac/install/
-Linux: https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+Windows: https://docs.docker.com/desktop/windows/install/ \
+Macos: https://docs.docker.com/desktop/mac/install/ \
+Linux: https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script 
 
 > *docker desktop on linux is still in beta
 
@@ -31,19 +29,27 @@ If you are following on a raspberry pi, execute 'installPortainer.sh' or copy/pa
 ```
 docker version
 docker ps
-docker volume create portainer_data​
-docker pull portainer/portainer-ce:latest ​
-docker image ls​
-docker run -d --name=portainer portainer/portainer-ce:latest​
-docker stop portainer​
-docker rm portainer​
+docker volume create portainer_data
+docker pull portainer/portainer-ce:latest 
+docker image ls
+docker run -d --name=portainer portainer/portainer-ce:latest
+docker stop portainer
+docker rm portainer
 ```
 ## Run Portainer
 Will work on Windows and linux
 ```
-docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer ​--restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest​
+docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 ```
 
+## Update image
+### Example Portainer
+```
+docker stop portainer
+docker rm portainer
+docker pull portainer/portainer-ce:latest
+docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
 # Home Assistant
 
 ## Intro
@@ -58,15 +64,14 @@ Today we are going to see how to install Home Assistant and some complements on 
 
 In addition, we will be able to install portainer, a web application to manage your containers easily.
 
-This procedure has been tested in arm (Raspberry Pi) and x86_64 architectures. For instructions on how to install docker and docker-compose on your Raspberry Pi you can check [this article](https://iotechonline.com/how-to-install-docker-and-docker-compose-on-your-raspberry-pi/).
-.env file
-
 A few environment variables will be declared in a file named .env, in the same directory where the docker-compose file is. As a result, these variables will be populated later into our docker-compose file at the moment the containers are created.
-Security advise
 
-The purpose of this stack is to have a working Home Assistant installation with some accessories. This means that it is not secure by default so you should NEVER expose it to the internet as is. I will explain some steps to secure it in a [next article](https://iotechonline.com/home-assistant-panel_iframe-external-access-with-nginx-proxy/), for example how to password protect Node-RED and hass-configurator and how to hide Home Assistant behind a reverse proxy like nginx using ssl certificates.
-Preparation
+## Security advise
+This procedure has been tested in arm (Raspberry Pi) and x86_64 architectures. The purpose of this stack is to have a working Home Assistant installation with some accessories for testing. This means that it is not secure by default so you should NEVER expose it to the internet as is. Follow the steps to secure it in [this article](https://iotechonline.com/home-assistant-panel_iframe-external-access-with-nginx-proxy/), for example how to password protect Node-RED and hass-configurator and how to hide Home Assistant behind a reverse proxy like nginx using ssl certificates.
 
+## Preparation
+Clone this repo \
+OR \
 Create a directory where we will put all needed config and our docker-compose file itself. As an example, I will be using a directory named ‘hass’. We will then precreate a directory structure to maintain configuration and data of the services. To clarify, structure will be as shown below and should be created as a normal non-root user.
 
 ```
@@ -245,7 +250,10 @@ Delete Volume: ```-v```
 ```
 
 ## Troubleshooting
-Review the container logs.
+Review the container logs. Try to restart the container and/or comment the container in de docker-compose.yml and try running it separately like:
+```
+docker run -p 8123:8123 --name="home-assistant" -e "Europe/Amsterdam" -v //c/Users/g/Desktop/homeassistant:/config homeassistant/home-assistant:stable
+```
 Most common issues are permission related.
 On RPi solve it like:
 ```
