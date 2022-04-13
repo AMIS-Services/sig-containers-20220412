@@ -154,7 +154,9 @@ services:
       - ./hass-config:/config
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-    network_mode: host
+#    network_mode: host
+	Ports:
+	  - "8123:8123"
     depends_on:
       - mariadb
       - mosquitto
